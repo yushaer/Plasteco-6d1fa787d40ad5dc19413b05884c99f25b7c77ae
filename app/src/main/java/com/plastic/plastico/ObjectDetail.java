@@ -22,7 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 public class ObjectDetail extends AppCompatActivity {
     private DatabaseReference myRef;
     private FirebaseDatabase mFirebaseDatabase;
-    private final  String input_id =  "060383758783"; // TO BE DELETED
+    private final  String input_id =  "07084781119"; // TO BE DELETED
 
 
     @Override
@@ -57,7 +57,7 @@ public class ObjectDetail extends AppCompatActivity {
 
     private final double conversion = 6.15384;
     public void showInfo(DataSnapshot dataSnapshot){
-        for(DataSnapshot ds : dataSnapshot.getChildren()){
+            for(DataSnapshot ds : dataSnapshot.getChildren()){
 
             ObjectInformation objectInformation = new ObjectInformation();
             // name input
