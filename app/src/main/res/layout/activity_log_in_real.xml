@@ -10,20 +10,41 @@
         android:layout_height="639dp"
         android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:background="@android:color/holo_green_light"
+            android:text="PlastEco"
+            android:textAlignment="center"
+            android:textColor="@android:color/background_light"
+            android:textSize="36sp"
+            android:textStyle="bold" />
+
         <Space
             android:layout_width="match_parent"
-            android:layout_height="100dp" />
+            android:layout_height="100dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginRight="80dp" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:text="Email" />
+            android:layout_marginLeft="80dp"
+            android:layout_marginRight="80dp"
+            android:text="Email"
+            android:textColor="@android:color/background_dark"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:layout_marginRight="80dp"
             android:layout_marginBottom="8dp"
             android:ems="10"
             android:inputType="textEmailAddress"
@@ -33,7 +54,12 @@
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="30dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginRight="80dp"
             android:text="Password"
+            android:textColor="@android:color/background_dark"
+            android:textSize="18sp"
+            android:textStyle="bold"
             tools:layout_editor_absoluteX="32dp"
             tools:layout_editor_absoluteY="249dp" />
 
@@ -41,7 +67,9 @@
             android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
             android:layout_marginTop="8dp"
+            android:layout_marginRight="80dp"
             android:ems="10"
             android:inputType="textPassword"
             tools:layout_editor_absoluteX="32dp" />
@@ -50,19 +78,23 @@
             android:id="@+id/login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="56dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginRight="80dp"
             android:onClick="login"
             android:text="Log In" />
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="40dp" />
+            android:layout_height="40dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginRight="80dp" />
 
         <Button
             android:id="@+id/register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:layout_marginRight="80dp"
             android:onClick="register"
             android:text="Register" />
 
