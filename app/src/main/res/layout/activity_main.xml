@@ -25,5 +25,12 @@
             android:layout_height="wrap_content"
             android:onClick="login"
             android:text="login" />
+
+        <Button
+            android:id="@+id/obDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="objectDetail"
+            android:text="Plastic bottle details" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
