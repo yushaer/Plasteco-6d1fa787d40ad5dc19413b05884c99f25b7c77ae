@@ -37,7 +37,7 @@
             android:id="@+id/noBarcodeButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="noBarcode"
+            android:onClick="barcode"
             android:text="No Object Barcode" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
