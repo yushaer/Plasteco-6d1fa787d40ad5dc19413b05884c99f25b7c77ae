@@ -48,12 +48,14 @@
             android:id="@+id/cancelButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="cancel"
             android:text="CANCEL" />
 
         <Button
             android:id="@+id/retakeButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="retakeAction"
             android:text="RETAKE" />
 
     </LinearLayout>
