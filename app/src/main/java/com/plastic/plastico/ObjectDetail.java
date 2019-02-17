@@ -61,26 +61,31 @@ public class ObjectDetail extends AppCompatActivity {
     private final double conversion = 6.15384;
     public void showInfo(DataSnapshot dataSnapshot){
             for(DataSnapshot ds : dataSnapshot.getChildren()){
-            objectInformation = new ObjectInformation();
-            // name input
-            objectInformation.setName(ds.child("objects").getValue(ObjectInformation.class).getName());
-            TextView fieldName = (TextView) findViewById(R.id.obName);
-            fieldName.setText(objectInformation.getName());
 
-            // id input
-            objectInformation.setId(ds.child(input_id).getValue(ObjectInformation.class).getId());
-            TextView fieldId = (TextView) findViewById(R.id.ID);
-            fieldId.setText("id: " + objectInformation.getId());
+            Log.d("title______", ds.getKey());
+            if(ds.getKey().equals("objects")) {
 
-            // type input
-            objectInformation.setType(ds.child(input_id).getValue(ObjectInformation.class).getType());
-            TextView fieldType = (TextView) findViewById(R.id.obType);
-            fieldType.setText("Type: " + objectInformation.getType());
+                objectInformation = new ObjectInformation();
+                // name input
+                objectInformation.setName(ds.child(input_id).getValue(ObjectInformation.class).getName());
+                TextView fieldName = (TextView) findViewById(R.id.obName);
+                fieldName.setText(objectInformation.getName());
 
-            // pollution input
-            objectInformation.setWeight(ds.child(input_id).getValue(ObjectInformation.class).getWeight());
-            TextView fieldPollution = (TextView) findViewById(R.id.obPollution);
-            fieldPollution.setText("Pollution(g): " + String.valueOf(objectInformation.getWeight() * conversion) + " CO2");
+                // id input
+                objectInformation.setId(ds.child(input_id).getValue(ObjectInformation.class).getId());
+                TextView fieldId = (TextView) findViewById(R.id.ID);
+                fieldId.setText("id: " + objectInformation.getId());
+
+                // type input
+                objectInformation.setType(ds.child(input_id).getValue(ObjectInformation.class).getType());
+                TextView fieldType = (TextView) findViewById(R.id.obType);
+                fieldType.setText("Type: " + objectInformation.getType());
+
+                // pollution input
+                objectInformation.setWeight(ds.child(input_id).getValue(ObjectInformation.class).getWeight());
+                TextView fieldPollution = (TextView) findViewById(R.id.obPollution);
+                fieldPollution.setText("Pollution(g): " + String.valueOf(objectInformation.getWeight() * conversion) + " CO2");
+            }
         }
 
     }
@@ -100,9 +105,11 @@ public class ObjectDetail extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
         final DatabaseReference database_instance = FirebaseDatabase.getInstance().getReference();
-        database_instance.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("name").setValue(objectInformation.getName());
-        database_instance.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("id").setValue(objectInformation.getId());
-
+        double rand = Math.random();
+        Log.d("myapp3",FirebaseAuth.getInstance().getCurrentUser().getUid());
+        database_instance.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("k").setValue(0);
+      //  database_instance.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(String.valueOf(rand)).child("name").setValue(objectInformation.getName());
+       // database_instance.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(String.valueOf(rand)).child("id").setValue(objectInformation.getId());
 
         Intent intent = new Intent(ObjectDetail.this, MainActivity.class);
         startActivity(intent);

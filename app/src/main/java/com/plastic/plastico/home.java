@@ -15,32 +15,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class home extends AppCompatActivity {
-    private FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        mAuth=FirebaseAuth.getInstance();
-        FirebaseUser user= mAuth.getCurrentUser();
-        Log.d("myapp",user.getUid());
-        final DatabaseReference database_instance = FirebaseDatabase.getInstance().getReference();
-        database_instance.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot snapshot) {
-                if (snapshot.hasChild(FirebaseAuth.getInstance().getCurrentUser().getUid())) {
-                    // run some code
-                }
-                else{
-                    Log.d("myapp","doesnt exit");
-                    database_instance.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(0);
-                }
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
         //Log.d("Ronan is beta bitch ",String.valueOf(user.getMetadata().getLastSignInTimestamp()));
 
     }
