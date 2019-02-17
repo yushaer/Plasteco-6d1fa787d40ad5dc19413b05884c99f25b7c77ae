@@ -34,7 +34,7 @@
             android:text="Plastic bottle details" />
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/noBarcodeButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="noBarcode"
