@@ -46,4 +46,13 @@
         android:translationX="80dp"
         android:translationY="600dp" />
 
+    <Button
+        android:id="@+id/confirmBarcode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="uploadQR"
+        android:text="Confirm"
+        android:translationX="275dp"
+        android:translationY="500dp" />
+
 </android.support.design.widget.CoordinatorLayout>

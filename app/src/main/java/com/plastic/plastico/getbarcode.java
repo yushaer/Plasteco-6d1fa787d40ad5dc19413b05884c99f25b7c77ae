@@ -143,6 +143,24 @@ public class getbarcode extends AppCompatActivity {
         e.printStackTrace();
     }
     }
+    public void uploadQR(View view)
+    {
+        try {
+            String qrcode = qrcodedisplay.getText().toString();
+
+
+            if (qrcode != "OOOF") {
+                Intent test = new Intent(this, ObjectDetail.class);
+                test.putExtra("QRCode", qrcode);
+                startActivity(test);
+            }
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+// Basically wraps the text in the intent use intent.getExtra("QRCode");
 
 
 
