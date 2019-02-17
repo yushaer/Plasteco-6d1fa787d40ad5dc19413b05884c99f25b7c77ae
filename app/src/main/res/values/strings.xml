@@ -4,4 +4,6 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_getbarcode">getbarcode</string>
     <string name="scan">Scan</string>
+    <string name="title_activity_object_detail">ObjectDetail</string>
+
 </resources>
