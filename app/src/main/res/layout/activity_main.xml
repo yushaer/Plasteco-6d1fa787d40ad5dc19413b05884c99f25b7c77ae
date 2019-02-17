@@ -39,13 +39,13 @@
             android:textSize="18sp" />
 
         <Button
-            android:id="@+id/obDetails"
+            android:id="@+id/obHistory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="80dp"
             android:layout_marginRight="80dp"
-            android:onClick="objectDetail"
-            android:text="DETAILS"
+            android:onClick="history"
+            android:text="HISTORY"
             android:textSize="18sp" />
 
         <Button
