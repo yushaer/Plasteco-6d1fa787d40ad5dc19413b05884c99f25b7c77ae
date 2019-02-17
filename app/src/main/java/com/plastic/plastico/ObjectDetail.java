@@ -60,8 +60,7 @@ public class ObjectDetail extends AppCompatActivity {
 
     private final double conversion = 6.15384;
     public void showInfo(DataSnapshot dataSnapshot){
-            for(DataSnapshot ds1 : dataSnapshot.getChildren()){
-            for(DataSnapshot ds2 : dataSnapshot.getChildren())
+            for(DataSnapshot ds : dataSnapshot.getChildren()){
             objectInformation = new ObjectInformation();
             // name input
             objectInformation.setName(ds.child("objects").getValue(ObjectInformation.class).getName());
