@@ -52,6 +52,10 @@ public class LogInRealActivity extends AppCompatActivity {
         });
         ///
     }
+    public void succes(){
+        Intent test = new Intent(this,home.class);
+        startActivity(test);
+    }
     public void login(String email, String password) {
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -64,6 +68,8 @@ public class LogInRealActivity extends AppCompatActivity {
                             if(user.isEmailVerified()) {
                                 Toast.makeText(LogInRealActivity.this, "Authentication succes",
                                         Toast.LENGTH_SHORT).show();
+                                 user.getUid();
+                                 succes();
                             }
                             else{
                                 Toast.makeText(LogInRealActivity.this, "Please verify your email",
