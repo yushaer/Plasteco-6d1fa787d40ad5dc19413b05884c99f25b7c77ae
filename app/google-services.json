@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1019563648268",
+    "firebase_url": "https://plasteco-3a8bc.firebaseio.com",
+    "project_id": "plasteco-3a8bc",
+    "storage_bucket": "plasteco-3a8bc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1019563648268:android:2dceb3604e5dfb86",
+        "android_client_info": {
+          "package_name": "com.plastic.plastico"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1019563648268-ocflpt3kf7fm1urerjflkuq7td94riod.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.plastic.plastico",
+            "certificate_hash": "6ef73b74d3c0fb8cbec297cd43d4c19bc3c8287c"
+          }
+        },
+        {
+          "client_id": "1019563648268-m17ob91d1jf5ftlpmeem4f5523h7p26p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhxFoFOxqM_jP2VphT7xkHpejoXYS9ZXU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1019563648268-m17ob91d1jf5ftlpmeem4f5523h7p26p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
