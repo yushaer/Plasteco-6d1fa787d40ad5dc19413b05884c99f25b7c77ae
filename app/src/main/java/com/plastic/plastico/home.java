@@ -20,8 +20,8 @@ public class home extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-     mAuth=FirebaseAuth.getInstance();
-       FirebaseUser user= mAuth.getCurrentUser();
+        mAuth=FirebaseAuth.getInstance();
+        FirebaseUser user= mAuth.getCurrentUser();
         Log.d("myapp",user.getUid());
         final DatabaseReference database_instance = FirebaseDatabase.getInstance().getReference();
         database_instance.addListenerForSingleValueEvent(new ValueEventListener() {

@@ -52,6 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="56dp"
             android:layout_marginEnd="8dp"
+            android:onClick="login"
             android:text="Log In" />
 
         <Space

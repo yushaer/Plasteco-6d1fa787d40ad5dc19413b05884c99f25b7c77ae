@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,7 +25,8 @@ public class ObjectDetail extends AppCompatActivity {
     private DatabaseReference myRef;
     private FirebaseDatabase mFirebaseDatabase;
     private final  String input_id =  "07084781119"; // TO BE DELETED
-
+    private ObjectInformation objectInformation;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,11 +60,11 @@ public class ObjectDetail extends AppCompatActivity {
 
     private final double conversion = 6.15384;
     public void showInfo(DataSnapshot dataSnapshot){
-            for(DataSnapshot ds : dataSnapshot.getChildren()){
-
-            ObjectInformation objectInformation = new ObjectInformation();
+            for(DataSnapshot ds1 : dataSnapshot.getChildren()){
+            for(DataSnapshot ds2 : dataSnapshot.getChildren())
+            objectInformation = new ObjectInformation();
             // name input
-            objectInformation.setName(ds.child(input_id).getValue(ObjectInformation.class).getName());
+            objectInformation.setName(ds.child("objects").getValue(ObjectInformation.class).getName());
             TextView fieldName = (TextView) findViewById(R.id.obName);
             fieldName.setText(objectInformation.getName());
 
@@ -92,6 +95,19 @@ public class ObjectDetail extends AppCompatActivity {
     public void retakeAction(View view){
         Intent intent = new Intent(ObjectDetail.this, getbarcode.class);
         startActivity(intent);
+    }
+
+    public void confirmBtn(View view){
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = mAuth.getCurrentUser();
+        final DatabaseReference database_instance = FirebaseDatabase.getInstance().getReference();
+        database_instance.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("name").setValue(objectInformation.getName());
+        database_instance.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("id").setValue(objectInformation.getId());
+
+
+        Intent intent = new Intent(ObjectDetail.this, MainActivity.class);
+        startActivity(intent);
+
     }
 
 

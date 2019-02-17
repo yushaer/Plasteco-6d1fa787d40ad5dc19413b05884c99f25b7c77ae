@@ -53,7 +53,7 @@ public class LogInRealActivity extends AppCompatActivity {
         ///
     }
     public void succes(){
-        Intent test = new Intent(this,home.class);
+        Intent test = new Intent(this,MainActivity.class);
         startActivity(test);
     }
     public void login(String email, String password) {
@@ -95,5 +95,6 @@ public class LogInRealActivity extends AppCompatActivity {
         Intent reg = new Intent(this,RegisterActivity.class);
         startActivity(reg);
     }
+
 
 }
