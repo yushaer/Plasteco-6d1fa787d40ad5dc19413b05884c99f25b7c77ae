@@ -25,6 +25,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(test);
     }
 
+    public void noBarcode(View view){
+        Intent bae= new Intent(this,noObjectBarcode.class);
+        startActivity(bae);
+    }
+
     public void bar(View view)
         {
                 Intent qrscan = new Intent(MainActivity.this,getbarcode.class);
