@@ -40,7 +40,7 @@
         app:srcCompat="@drawable/common_full_open_on_phone" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/qrcodenum"
         android:layout_width="246dp"
         android:layout_height="wrap_content"
         android:translationX="80dp"
