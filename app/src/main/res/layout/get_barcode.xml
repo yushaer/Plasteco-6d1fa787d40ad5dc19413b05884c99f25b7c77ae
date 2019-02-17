@@ -39,4 +39,11 @@
         android:translationY="150dp"
         app:srcCompat="@drawable/common_full_open_on_phone" />
 
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="246dp"
+        android:layout_height="wrap_content"
+        android:translationX="80dp"
+        android:translationY="600dp" />
+
 </android.support.design.widget.CoordinatorLayout>
