@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".NoBarcode">
 
     <TextView
@@ -11,9 +12,7 @@
         android:layout_width="329dp"
         android:layout_height="43dp"
         android:text="Product not in database"
-        android:textSize="30sp"
-        tools:layout_editor_absoluteX="41dp"
-        tools:layout_editor_absoluteY="16dp" />
+        android:textSize="30sp" />
 
     <EditText
         android:id="@+id/editText"
@@ -24,16 +23,12 @@
         android:inputType="textPersonName"
         android:text="Enter New Barcode"
         android:textColor="@android:color/darker_gray"
-        android:visibility="visible"
-        tools:layout_editor_absoluteX="41dp"
-        tools:layout_editor_absoluteY="76dp" />
+        android:visibility="visible" />
 
     <Button
         android:id="@+id/newBarcodeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enter"
-        tools:layout_editor_absoluteX="41dp"
-        tools:layout_editor_absoluteY="144dp" />
+        android:text="Enter" />
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>
