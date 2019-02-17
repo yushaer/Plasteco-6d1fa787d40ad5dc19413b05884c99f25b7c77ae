@@ -32,6 +32,8 @@
             android:id="@+id/button2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:layout_marginRight="80dp"
             android:onClick="bar"
             android:text="SCANNER"
             android:textSize="18sp" />
@@ -40,6 +42,8 @@
             android:id="@+id/obDetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:layout_marginRight="80dp"
             android:onClick="objectDetail"
             android:text="DETAILS"
             android:textSize="18sp" />
@@ -48,9 +52,16 @@
             android:id="@+id/noBarcodeButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:layout_marginRight="80dp"
             android:onClick="barcode"
             android:text="MANUAL"
             android:textSize="18sp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0" />
 
         <ImageView
             android:id="@+id/imageView"
