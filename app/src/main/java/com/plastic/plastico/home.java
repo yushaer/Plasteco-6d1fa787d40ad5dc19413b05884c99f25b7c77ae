@@ -23,8 +23,8 @@ public class home extends AppCompatActivity {
      mAuth=FirebaseAuth.getInstance();
        FirebaseUser user= mAuth.getCurrentUser();
         Log.d("myapp",user.getUid());
-        final DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
-        rootRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        final DatabaseReference database_instance = FirebaseDatabase.getInstance().getReference();
+        database_instance.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 if (snapshot.hasChild(FirebaseAuth.getInstance().getCurrentUser().getUid())) {
@@ -32,7 +32,7 @@ public class home extends AppCompatActivity {
                 }
                 else{
                     Log.d("myapp","doesnt exit");
-                    rootRef.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(0);
+                    database_instance.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(0);
                 }
             }
 
