@@ -48,7 +48,7 @@
             android:id="@+id/cancelButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="cancel"
+            android:onClick="cancelAction"
             android:text="CANCEL" />
 
         <Button
