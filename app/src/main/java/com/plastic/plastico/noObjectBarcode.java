@@ -10,7 +10,7 @@ public class noObjectBarcode extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_no_object_barcode);
 
-        
+
     }
 
 

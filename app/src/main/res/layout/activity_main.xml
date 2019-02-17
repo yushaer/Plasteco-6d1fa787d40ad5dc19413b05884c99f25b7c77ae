@@ -32,5 +32,12 @@
             android:layout_height="wrap_content"
             android:onClick="objectDetail"
             android:text="Plastic bottle details" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="noBarcode"
+            android:text="No Object Barcode" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
