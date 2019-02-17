@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".NoBarcode">
 
     <LinearLayout
@@ -12,44 +11,50 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="100dp" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="75dp" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/textView7"
             android:layout_width="match_parent"
-            android:layout_height="43dp"
-            android:text="Product not in database"
+            android:layout_height="wrap_content"
+            android:text="No Barcode"
+            android:textAlignment="center"
             android:textSize="30sp" />
 
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Enter Barcode" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <com.google.android.material.textfield.TextInputEditText
+        <TextView
+            android:id="@+id/textView8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="hint" />
+            android:text="Input Barcode" />
 
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_weight="1" />
-    </com.google.android.material.textfield.TextInputLayout>
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Name" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Input Description" />
+
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Name" />
 
         <Button
-            android:id="@+id/newBarcodeButton"
+            android:id="@+id/button4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Enter" />
-
+            android:text="Button" />
     </LinearLayout>
-
 </android.support.constraint.ConstraintLayout>
