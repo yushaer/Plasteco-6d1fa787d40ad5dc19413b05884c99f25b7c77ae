@@ -2,7 +2,6 @@ package com.plastic.plastico;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -11,8 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.vision.barcode.Barcode;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 import com.google.firebase.auth.FirebaseAuth;
@@ -22,6 +20,12 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.util.Date;
+import java.util.Random;
 
 
 public class ObjectDetail extends AppCompatActivity {
@@ -105,29 +109,28 @@ public class ObjectDetail extends AppCompatActivity {
     }
 
     public void confirmBtn(View view){
-        mAuth = FirebaseAuth.getInstance();
-        FirebaseUser user = mAuth.getCurrentUser();
+        mAuth= FirebaseAuth.getInstance();
+        FirebaseUser user= mAuth.getCurrentUser();
+        Log.d("myapp",user.getUid());
         final DatabaseReference database_instance = FirebaseDatabase.getInstance().getReference();
-        double rand = Math.random();
-        Log.d("myapp3",FirebaseAuth.getInstance().getCurrentUser().getUid());
-       database_instance.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("TEst").setValue(0).addOnSuccessListener(new OnSuccessListener<Void>() {
-           @Override
-           public void onSuccess(Void aVoid) {
-               Intent intent = new Intent(ObjectDetail.this, MainActivity.class);
-               startActivity(intent);
-           }
-       })
-               .addOnFailureListener(new OnFailureListener() {
-                   @Override
-                   public void onFailure(@NonNull Exception e) {
-                       // Write failed
-                       // ...
-                   }
-               });
-      //  database_instance.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(String.valueOf(rand)).child("name").setValue(objectInformation.getName());
-       // database_instance.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(String.valueOf(rand)).child("id").setValue(objectInformation.getId());
+        Random rand = new Random(System.currentTimeMillis());
+        int key = rand.nextInt();
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Date date = new Date();
 
+        database_instance.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(String.valueOf(key)).setValue(0);
+        database_instance.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(String.valueOf(key)).setValue(0);
+        database_instance.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(String.valueOf(key)).child("name").setValue(objectInformation.getName());
+        database_instance.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(String.valueOf(key)).child("id").setValue(objectInformation.getId());
+        database_instance.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(String.valueOf(key)).child("datetime").setValue(dateFormat.format(date));
+        database_instance.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(String.valueOf(key)).child("weight").setValue(objectInformation.getWeight());
 
+        try{
+            Thread.sleep(500);
+        }catch(Exception e){}
+
+        Intent intent = new Intent(ObjectDetail.this, MainActivity.class);
+        startActivity(intent);
 
     }
 
