@@ -2,6 +2,7 @@ package com.plastic.plastico;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.constraint.solver.widgets.Snapshot;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -20,6 +21,8 @@ import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
+    private int weight;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +44,8 @@ public class MainActivity extends AppCompatActivity {
                         Log.d("myapp12","doesnt exit");
                         database_instance.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(0);
                     }
-                    // run some code
+                    weight = getWeight(snapshot);
+                    Log.d("weight: " , String.valueOf(weight));
                 }
                 else{
                     Log.d("myapp","doesnt exit");
@@ -55,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 
     public void login(View view){
         Intent test = new Intent(this,LogInRealActivity.class);
@@ -77,4 +82,32 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this,HistoryActivity.class);
         startActivity(intent);
     }
+
+
+    public int getWeight(DataSnapshot dataSnapshot){
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser user= mAuth.getCurrentUser();
+        Log.d("myapp",user.getUid());
+        final DatabaseReference database_instance = FirebaseDatabase.getInstance().getReference();
+        int weight = 0;
+        for(DataSnapshot ds: dataSnapshot.getChildren()){
+            Log.d("Key:", ds.getKey());
+            if(ds.getKey().equals("Users")){
+                for(DataSnapshot usersSnapshot: ds.getChildren()){
+                    Log.d("Key_snap:", usersSnapshot.getKey());
+                    Log.d("Key_user:", user.getUid());
+                    if(usersSnapshot.getKey().equals(user.getUid())){
+                        for(DataSnapshot userSnapshot: usersSnapshot.getChildren()){
+                            User _user = new User();
+                            _user.setWeight(userSnapshot.child("weight").getValue().toString());
+                            weight += Integer.parseInt(_user.getWeight());
+
+                        }
+                    }
+                }
+            }
+        }
+        return weight;
+    }
+
 }
