@@ -107,12 +107,12 @@ public class ObjectDetail extends AppCompatActivity {
         final DatabaseReference database_instance = FirebaseDatabase.getInstance().getReference();
         double rand = Math.random();
         Log.d("myapp3",FirebaseAuth.getInstance().getCurrentUser().getUid());
-        database_instance.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("k").setValue(0);
+       database_instance.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("k").setValue(0);
       //  database_instance.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(String.valueOf(rand)).child("name").setValue(objectInformation.getName());
        // database_instance.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(String.valueOf(rand)).child("id").setValue(objectInformation.getId());
 
-        Intent intent = new Intent(ObjectDetail.this, MainActivity.class);
-        startActivity(intent);
+        //Intent intent = new Intent(ObjectDetail.this, MainActivity.class);
+        //startActivity(intent);
 
     }
 

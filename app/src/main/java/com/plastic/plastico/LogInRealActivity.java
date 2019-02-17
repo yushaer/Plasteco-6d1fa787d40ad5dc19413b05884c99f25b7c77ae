@@ -17,12 +17,15 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.Date;
+
 public class LogInRealActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private EditText email;
     private EditText password;
     private Button submit;
+    private Date date;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,10 +66,11 @@ public class LogInRealActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
+                            date = new Date();
 
                             FirebaseUser user = mAuth.getCurrentUser();
                             if(user.isEmailVerified()) {
-                                Toast.makeText(LogInRealActivity.this, "Authentication succes",
+                                Toast.makeText(LogInRealActivity.this, date.toString(),
                                         Toast.LENGTH_SHORT).show();
                                  user.getUid();
                                  succes();
