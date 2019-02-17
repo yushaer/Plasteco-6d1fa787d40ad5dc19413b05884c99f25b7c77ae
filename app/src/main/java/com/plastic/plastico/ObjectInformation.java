@@ -3,7 +3,7 @@ package com.plastic.plastico;
 public class ObjectInformation {
     private String id;
     private String name;
-    private String weight;
+    private double weight;
     private String type;
 
     ObjectInformation(){
@@ -25,11 +25,11 @@ public class ObjectInformation {
         this.name = name;
     }
 
-    public String getWeight() {
+    public double getWeight() {
         return weight;
     }
 
-    public void setWeight(String weight) {
+    public void setWeight(double weight) {
         this.weight = weight;
     }
 

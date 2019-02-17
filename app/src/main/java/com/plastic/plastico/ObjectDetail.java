@@ -52,23 +52,33 @@ public class ObjectDetail extends AppCompatActivity {
 
 
 
-        TextView fieldType = (TextView) findViewById(R.id.obType);
-        fieldType.setText("Type: " + "Plastic");
-        TextView fieldID = (TextView) findViewById(R.id.ID);
-        fieldID.setText("ID: " + "");
-        TextView fieldPollution = (TextView) findViewById(R.id.obPollution);
-        fieldPollution.setText("Pollution(Tons): " + "");
 
     }
 
-
+    private final double conversion = 6.15384;
     public void showInfo(DataSnapshot dataSnapshot){
         for(DataSnapshot ds : dataSnapshot.getChildren()){
 
             ObjectInformation objectInformation = new ObjectInformation();
-            objectInformation.setName(ds.getValue(ObjectInformation.class).getName());
-            TextView fieldID = (TextView) findViewById(R.id.ID);
-            fieldID.setText("ID: " + objectInformation.getName());
+            // name input
+            objectInformation.setName(ds.child(input_id).getValue(ObjectInformation.class).getName());
+            TextView fieldName = (TextView) findViewById(R.id.obName);
+            fieldName.setText(objectInformation.getName());
+
+            // id input
+            objectInformation.setId(ds.child(input_id).getValue(ObjectInformation.class).getId());
+            TextView fieldId = (TextView) findViewById(R.id.ID);
+            fieldId.setText("id: " + objectInformation.getId());
+
+            // type input
+            objectInformation.setType(ds.child(input_id).getValue(ObjectInformation.class).getType());
+            TextView fieldType = (TextView) findViewById(R.id.obType);
+            fieldType.setText("Type: " + objectInformation.getType());
+
+            // pollution input
+            objectInformation.setWeight(ds.child(input_id).getValue(ObjectInformation.class).getWeight());
+            TextView fieldPollution = (TextView) findViewById(R.id.obPollution);
+            fieldPollution.setText("Pollution(g): " + String.valueOf(objectInformation.getWeight() * conversion) + " CO2");
         }
 
     }
