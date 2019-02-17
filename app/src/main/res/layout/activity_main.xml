@@ -12,25 +12,48 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:background="@android:color/holo_green_light"
+            android:text="PlastEco"
+            android:textAlignment="center"
+            android:textColor="@android:color/background_light"
+            android:textSize="36sp"
+            android:textStyle="bold" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
         <Button
             android:id="@+id/button2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="bar"
-            android:text="@string/title_activity_getbarcode" />
+            android:text="SCANNER" />
 
         <Button
             android:id="@+id/obDetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="objectDetail"
-            android:text="Plastic bottle details" />
+            android:text="DETAILS" />
 
         <Button
             android:id="@+id/noBarcodeButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="barcode"
-            android:text="No Object Barcode" />
+            android:text="MANUAL" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            app:srcCompat="@drawable/a" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
