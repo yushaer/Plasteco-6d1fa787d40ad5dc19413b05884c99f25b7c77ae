@@ -23,9 +23,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(test);
     }
 
-    public void noBarcode(View view){
-        Intent bae= new Intent(this,NoBarcode.class);
-        startActivity(bae);
+    public void barcode(View view) {
+        Intent test = new Intent(this,NoBarcode.class);
+        startActivity(test);
     }
 
     public void bar(View view)
