@@ -39,6 +39,14 @@
           }
         },
         {
+          "client_id": "1019563648268-o3ap33adc486l3e1iq8s64skra1cbiqo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.plastic.plastico",
+            "certificate_hash": "233ff8f9d9a9cfc8193866637a8bc1d164008faf"
+          }
+        },
+        {
           "client_id": "1019563648268-m17ob91d1jf5ftlpmeem4f5523h7p26p.apps.googleusercontent.com",
           "client_type": 3
         }

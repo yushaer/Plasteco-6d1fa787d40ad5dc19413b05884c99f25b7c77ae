@@ -23,38 +23,29 @@
             android:textAlignment="center"
             android:textSize="30sp" />
 
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Input Barcode" />
-
         <EditText
             android:id="@+id/editText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="20dp"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name" />
-
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Input Description" />
+            android:hint="Name"
+            android:inputType="textPersonName" />
 
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/barcode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="20dp"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name" />
+            android:hint="Barcode"
+            android:inputType="textPersonName" />
 
         <Button
-            android:id="@+id/button4"
-            android:layout_width="match_parent"
+            android:id="@+id/sendData"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:layout_margin="20dp"
+            android:text="Enter" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
