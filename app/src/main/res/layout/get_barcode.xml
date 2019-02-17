@@ -22,12 +22,21 @@
 
     <include layout="@layout/content_getbarcode" />
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
+    <Button
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        android:onClick="TakePicture"
+        android:text="Scan"
+        android:translationX="50dp"
+        android:translationY="500dp" />
+
+    <ImageView
+        android:id="@+id/ScanThumb"
+        android:layout_width="306dp"
+        android:layout_height="332dp"
+        android:translationX="50dp"
+        android:translationY="150dp"
+        app:srcCompat="@drawable/common_full_open_on_phone" />
 
 </android.support.design.widget.CoordinatorLayout>
