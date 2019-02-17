@@ -25,10 +25,10 @@ public class LogInRealActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in_real);
-        //email= findViewById(R.id.email);
-        //password= findViewById(R.id.password);
+        email= findViewById(R.id.email);
+        password= findViewById(R.id.password);
 
-       // submit= findViewById(R.id.login);
+       submit= findViewById(R.id.login);
         mAuth = FirebaseAuth.getInstance();
         submit.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -17,10 +17,18 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
     }
-    public void scanbarcode(View view)
+
+    public void login(View view){
+        Intent test = new Intent(this,LogInRealActivity.class);
+        startActivity(test);
+    }
+
+    public void bar(View view)
         {
                 Intent qrscan = new Intent(MainActivity.this,getbarcode.class);
+                startActivity(qrscan);
         }
 
 }
