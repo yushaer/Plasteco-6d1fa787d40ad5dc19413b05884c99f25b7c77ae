@@ -91,7 +91,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    
+    public void loggout(){
+        FirebaseAuth.getInstance().signOut();
+        Intent test = new Intent(this,LogInRealActivity.class);
+        startActivity(test);
+    }
 
     public int getWeight(DataSnapshot dataSnapshot){
         mAuth = FirebaseAuth.getInstance();
