@@ -23,6 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private int weight = 0;
+    int cityWeight = 0;
     private TextView nDisplayWeight;
     private TextView nDisplayPCF;
     private final double conversion = 6.15384;
@@ -49,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
                         database_instance.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(0);
                     }
                     weight = getWeight(snapshot);
+                    cityWeight = getCityWeight(snapshot);
+
                     Log.d("weight: " , String.valueOf(weight));
                     nDisplayWeight = (TextView) findViewById(R.id.displayWeight);
                     nDisplayWeight.setText("Weight: " + String.valueOf(weight) +"g");
@@ -91,6 +94,33 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+
+    public int getCityWeight(DataSnapshot dataSnapshot){
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser user= mAuth.getCurrentUser();
+        Log.d("myapp",user.getUid());
+        final DatabaseReference database_instance = FirebaseDatabase.getInstance().getReference();
+        int weight = 0;
+        for(DataSnapshot ds: dataSnapshot.getChildren()){
+            Log.d("Key:", ds.getKey());
+            if(ds.getKey().equals("Users")){
+                for(DataSnapshot usersSnapshot: ds.getChildren()){
+                    Log.d("Key_snap:", usersSnapshot.getKey());
+                    Log.d("Key_user:", user.getUid());
+                        for(DataSnapshot userSnapshot: usersSnapshot.getChildren()){
+                            User _user = new User();
+                            _user.setWeight(userSnapshot.child("weight").getValue().toString());
+                            weight += Integer.parseInt(_user.getWeight());
+
+
+                    }
+                }
+            }
+        }
+
+        Log.d("CityWeight", String.valueOf(weight));
+        return weight;
+    }
 
     public int getWeight(DataSnapshot dataSnapshot){
         mAuth = FirebaseAuth.getInstance();
