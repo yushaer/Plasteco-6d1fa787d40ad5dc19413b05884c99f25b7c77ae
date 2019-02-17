@@ -8,8 +8,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.content.Intent;
 
-import com.google.firebase.FirebaseApp;
-
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -18,8 +16,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        Intent b = new Intent(MainActivity.this,NoBarcode.class);
-        startActivity(b);
+
 
     }
 
@@ -29,8 +26,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void noBarcode(View view){
-        Intent b = new Intent(MainActivity.this,noObjectBarcode.class);
-        startActivity(b);
+        Intent bae= new Intent(this,noObjectBarcode.class);
+        startActivity(bae);
     }
 
     public void bar(View view)
