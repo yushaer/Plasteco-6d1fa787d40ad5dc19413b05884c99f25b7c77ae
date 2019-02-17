@@ -18,7 +18,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        FirebaseApp.initializeApp(this);
+        Intent b = new Intent(MainActivity.this,NoBarcode.class);
+        startActivity(b);
 
     }
 
@@ -28,8 +29,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void noBarcode(View view){
-        Intent bae= new Intent(this,noObjectBarcode.class);
-        startActivity(bae);
+        Intent b = new Intent(MainActivity.this,noObjectBarcode.class);
+        startActivity(b);
     }
 
     public void bar(View view)
