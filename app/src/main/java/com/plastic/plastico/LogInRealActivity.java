@@ -96,7 +96,7 @@ public class LogInRealActivity extends AppCompatActivity {
     }
 
     public void register(View view) {
-        Intent reg = new Intent(this,MainActivity.class);
+        Intent reg = new Intent(this,RegisterActivity.class);
         startActivity(reg);
     }
 

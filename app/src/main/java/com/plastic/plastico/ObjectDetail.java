@@ -46,19 +46,22 @@ public class ObjectDetail extends AppCompatActivity {
 
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         myRef = mFirebaseDatabase.getReference();
+        if(getIntent().hasExtra("QRCode")) {
 
+            final String QRcode = getIntent().getExtras().getString("QRCode");
 
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                showInfo(dataSnapshot);
-            }
+                    myRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    showInfo(dataSnapshot,QRcode);
+                }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
 
-            }
-        });
+                }
+            });
+        }
 
 
 
@@ -66,7 +69,7 @@ public class ObjectDetail extends AppCompatActivity {
     }
 
     private final double conversion = 6.15384;
-    public void showInfo(DataSnapshot dataSnapshot){
+    public void showInfo(DataSnapshot dataSnapshot,String qr){
             for(DataSnapshot ds : dataSnapshot.getChildren()){
 
             Log.d("title______", ds.getKey());
@@ -74,22 +77,22 @@ public class ObjectDetail extends AppCompatActivity {
 
                 objectInformation = new ObjectInformation();
                 // name input
-                objectInformation.setName(ds.child(input_id).getValue(ObjectInformation.class).getName());
+                objectInformation.setName(ds.child(qr).getValue(ObjectInformation.class).getName());
                 TextView fieldName = (TextView) findViewById(R.id.obName);
                 fieldName.setText(objectInformation.getName());
 
                 // id input
-                objectInformation.setId(ds.child(input_id).getValue(ObjectInformation.class).getId());
+                objectInformation.setId(ds.child(qr).getValue(ObjectInformation.class).getId());
                 TextView fieldId = (TextView) findViewById(R.id.ID);
                 fieldId.setText("id: " + objectInformation.getId());
 
                 // type input
-                objectInformation.setType(ds.child(input_id).getValue(ObjectInformation.class).getType());
+                objectInformation.setType(ds.child(qr).getValue(ObjectInformation.class).getType());
                 TextView fieldType = (TextView) findViewById(R.id.obType);
                 fieldType.setText("Type: " + objectInformation.getType());
 
                 // pollution input
-                objectInformation.setWeight(ds.child(input_id).getValue(ObjectInformation.class).getWeight());
+                objectInformation.setWeight(ds.child(qr).getValue(ObjectInformation.class).getWeight());
                 TextView fieldPollution = (TextView) findViewById(R.id.obPollution);
                 fieldPollution.setText("Pollution(g): " + String.valueOf(objectInformation.getWeight() * conversion) + " CO2");
             }
