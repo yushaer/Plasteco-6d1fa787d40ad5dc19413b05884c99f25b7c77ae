@@ -43,7 +43,7 @@ public class getbarcode extends AppCompatActivity {
     }
     private void checkcode(Bitmap scannedimg)
     {
-       // FirebaseVisionImage qrcode = FirebaseVisionImage.fromBitmap(scannedimg);
+      // FirebaseVisionImage qrcode = FirebaseVisionImage.fromBitmap(scannedimg);
 
     }
 
