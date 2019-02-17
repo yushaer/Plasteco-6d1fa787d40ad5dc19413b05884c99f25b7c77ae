@@ -58,6 +58,22 @@
             android:text="MANUAL"
             android:textSize="18sp" />
 
+        <TextView
+            android:id="@+id/displayWeight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/displayPCF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+
         <Space
             android:layout_width="match_parent"
             android:layout_height="80dp"
