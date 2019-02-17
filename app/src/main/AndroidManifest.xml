@@ -18,11 +18,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".HistoryActivity"
-            android:label="@string/title_activity_history"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".NoBarcode" />
+        <activity android:name=".NoBarcode"></activity>
         <activity android:name=".RegisterActivity" />
         <activity
             android:name=".ObjectDetail"
@@ -43,6 +39,15 @@
             </intent-filter>
         </activity>
         <activity android:name=".LogInRealActivity" />
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.plastic.plastico"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"></meta-data>
+        </provider>
     </application>
 
 </manifest>
