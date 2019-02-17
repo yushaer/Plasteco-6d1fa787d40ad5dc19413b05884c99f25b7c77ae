@@ -13,9 +13,6 @@ public class NoBarcode extends AppCompatActivity {
 
     private EditText nBarcode;
     private Button nSendData;
-    private TextView nKeyValue;
-
-
     private Firebase nRef;
 
     @Override
@@ -23,18 +20,15 @@ public class NoBarcode extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_no_barcode);
 
-
         nRef = new Firebase("https://plasteco-3a8bc.firebaseio.com/objects");
         nBarcode = (EditText) findViewById(R.id.barcode);
         nSendData = (Button) findViewById(R.id.sendData);
-        nKeyValue = (TextView) findViewById(R.id.keyValue);
         nSendData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String barcode = nBarcode.getText().toString();
-                String key = nKeyValue.getText().toString();
-                Firebase nRefChild = nRef.child(key);
-                nRef.push().setValue(barcode);
+                Firebase nRefBarcode = nRef.child(barcode);
+                nRefBarcode.push().setValue(barcode);
             }
         });
     }
