@@ -8,8 +8,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.content.Intent;
 
-import com.google.firebase.FirebaseApp;
-
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -18,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        FirebaseApp.initializeApp(this);
+
 
     }
 
