@@ -33,21 +33,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="bar"
-            android:text="SCANNER" />
+            android:text="SCANNER"
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/obDetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="objectDetail"
-            android:text="DETAILS" />
+            android:text="DETAILS"
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/noBarcodeButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="barcode"
-            android:text="MANUAL" />
+            android:text="MANUAL"
+            android:textSize="18sp" />
 
         <ImageView
             android:id="@+id/imageView"
