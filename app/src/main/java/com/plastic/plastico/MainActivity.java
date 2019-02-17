@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.content.Intent;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -21,7 +22,10 @@ import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
-    private int weight;
+    private int weight = 0;
+    private TextView nDisplayWeight;
+    private TextView nDisplayPCF;
+    private final double conversion = 6.15384;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,11 +45,15 @@ public class MainActivity extends AppCompatActivity {
                         Log.d("myapp11","Exsists");
                     }
                     else{
-                        Log.d("myapp12","doesnt exit");
+                        Log.d("myapp12","doesn't exists");
                         database_instance.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(0);
                     }
                     weight = getWeight(snapshot);
                     Log.d("weight: " , String.valueOf(weight));
+                    nDisplayWeight = (TextView) findViewById(R.id.displayWeight);
+                    nDisplayWeight.setText("Weight: " + String.valueOf(weight) +"g");
+                    nDisplayPCF = (TextView) findViewById(R.id.displayPCF);
+                    nDisplayPCF.setText("Total Carbon Emissions: " + String.valueOf(weight*conversion)+"g");
                 }
                 else{
                     Log.d("myapp","doesnt exit");
