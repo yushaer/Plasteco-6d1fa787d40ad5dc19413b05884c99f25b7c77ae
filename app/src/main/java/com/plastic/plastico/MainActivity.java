@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView nDisplayWeight;
     private TextView nDisplayPCF;
     private final double conversion = 6.15384;
+    private TextView nDisplayCityWeight;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
                     nDisplayWeight.setText("Weight: " + String.valueOf(weight) +"g");
                     nDisplayPCF = (TextView) findViewById(R.id.displayPCF);
                     nDisplayPCF.setText("Total Carbon Emissions: " + String.valueOf(weight*conversion)+"g");
+                    nDisplayCityWeight = (TextView) findViewById(R.id.displayCityWeight);
+                    nDisplayCityWeight.setText("Total City Weight: " + String.valueOf(cityWeight*conversion) + "g");
                 }
                 else{
                     Log.d("myapp","doesnt exit");
