@@ -33,7 +33,14 @@ public class MainActivity extends AppCompatActivity {
         database_instance.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
-                if (snapshot.hasChild(FirebaseAuth.getInstance().getCurrentUser().getUid())) {
+                if (snapshot.hasChild("Users")) {
+                    if(snapshot.child("Users").hasChild(FirebaseAuth.getInstance().getCurrentUser().getUid())){
+                        Log.d("myapp11","Exsists");
+                    }
+                    else{
+                        Log.d("myapp12","doesnt exit");
+                        database_instance.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(0);
+                    }
                     // run some code
                 }
                 else{

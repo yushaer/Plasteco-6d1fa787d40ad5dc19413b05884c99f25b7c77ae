@@ -2,6 +2,7 @@ package com.plastic.plastico;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +11,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 import com.google.firebase.auth.FirebaseAuth;
@@ -107,12 +110,24 @@ public class ObjectDetail extends AppCompatActivity {
         final DatabaseReference database_instance = FirebaseDatabase.getInstance().getReference();
         double rand = Math.random();
         Log.d("myapp3",FirebaseAuth.getInstance().getCurrentUser().getUid());
-       database_instance.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("k").setValue(0);
+       database_instance.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("TEst").setValue(0).addOnSuccessListener(new OnSuccessListener<Void>() {
+           @Override
+           public void onSuccess(Void aVoid) {
+               Intent intent = new Intent(ObjectDetail.this, MainActivity.class);
+               startActivity(intent);
+           }
+       })
+               .addOnFailureListener(new OnFailureListener() {
+                   @Override
+                   public void onFailure(@NonNull Exception e) {
+                       // Write failed
+                       // ...
+                   }
+               });
       //  database_instance.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(String.valueOf(rand)).child("name").setValue(objectInformation.getName());
        // database_instance.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(String.valueOf(rand)).child("id").setValue(objectInformation.getId());
 
-        //Intent intent = new Intent(ObjectDetail.this, MainActivity.class);
-        //startActivity(intent);
+
 
     }
 
