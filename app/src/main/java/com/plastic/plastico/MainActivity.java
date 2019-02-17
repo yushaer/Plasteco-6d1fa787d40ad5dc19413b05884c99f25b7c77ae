@@ -83,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    
 
     public int getWeight(DataSnapshot dataSnapshot){
         mAuth = FirebaseAuth.getInstance();
