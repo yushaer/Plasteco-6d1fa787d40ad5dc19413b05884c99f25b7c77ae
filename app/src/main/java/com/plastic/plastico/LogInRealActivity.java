@@ -17,12 +17,15 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.Date;
+
 public class LogInRealActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private EditText email;
     private EditText password;
     private Button submit;
+    private Date date;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +55,10 @@ public class LogInRealActivity extends AppCompatActivity {
         });
         ///
     }
+    public void succes(){
+        Intent test = new Intent(this,MainActivity.class);
+        startActivity(test);
+    }
     public void login(String email, String password) {
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -59,11 +66,14 @@ public class LogInRealActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
+                            date = new Date();
 
                             FirebaseUser user = mAuth.getCurrentUser();
                             if(user.isEmailVerified()) {
-                                Toast.makeText(LogInRealActivity.this, "Authentication succes",
+                                Toast.makeText(LogInRealActivity.this, date.toString(),
                                         Toast.LENGTH_SHORT).show();
+                                 user.getUid();
+                                 succes();
                             }
                             else{
                                 Toast.makeText(LogInRealActivity.this, "Please verify your email",
@@ -89,5 +99,6 @@ public class LogInRealActivity extends AppCompatActivity {
         Intent reg = new Intent(this,RegisterActivity.class);
         startActivity(reg);
     }
+
 
 }
