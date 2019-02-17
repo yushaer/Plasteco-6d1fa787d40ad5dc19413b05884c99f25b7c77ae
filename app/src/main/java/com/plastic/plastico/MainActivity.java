@@ -93,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void loggout(){
         FirebaseAuth.getInstance().signOut();
+        finish();
         Intent test = new Intent(this,LogInRealActivity.class);
         startActivity(test);
     }
